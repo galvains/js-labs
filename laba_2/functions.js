@@ -39,9 +39,10 @@ function ob2(){
 	var b = parseInt(document.getElementById('b').value);
 
 	//var str = String(a);
-
+	var g = a + b;
+	
 	var Step={
-		str: String(a),
+		str: String(g),
 		sum: 0,
 		otv: function (){
 			for (var i of Step.str) {
