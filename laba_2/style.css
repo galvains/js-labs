@@ -1,0 +1,25 @@
+body {
+	font-family: "Tahoma", serif;
+	color: white;
+	background: #3F3F3F;
+}
+
+.zag {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.res {
+	font-size: 15px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.img {
+	width: 200px;
+	border: 3px solid white;
+	border-radius: 3px;
+
+}
+
+
+
