@@ -34,21 +34,21 @@ function ob1(){
 	}
 }
 
-function ob2() {
+function ob2(){
 	var a = parseInt(document.getElementById('a').value);
 	var b = parseInt(document.getElementById('b').value);
-	
-	var str = String(a);
-		
-	sum = 0;
-	
-		for (var i of str) {
-			sum += Number(i);
+
+	//var str = String(a);
+
+	var Step={
+		str: String(a),
+		sum: 0,
+		otv: function (){
+			for (var i of Step.str) {
+				Step.sum += Number(i);
+			}
+			return this.sum;
 		}
-	
-
-	document.getElementById('result2').innerHTML = sum;
+	}
+	document.getElementById('result2').innerHTML = "Ответ: " + Step.otv();
 }
-
-
-
