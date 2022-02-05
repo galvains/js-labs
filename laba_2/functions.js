@@ -1,9 +1,10 @@
 function ob1(){
 	var Person = {
+		otv: '',
 		user1: {
 			'name': 'Сергей',
 			'surname': 'Жуков',	
-			'grants': 'получает'
+			'grants': 'получает',
 		},
 		user2: {
 			'name': 'Светлана',
@@ -19,11 +20,22 @@ function ob1(){
 			'name': 'Евгений',
 			'surname': 'Носов',
 			'grants': 'не получает'
+		},
+		schet: function(){
+			for (var key in Person) {
+				if (Person[key].grants == 'получает') {
+					Person.otv += "Имя: " + Person[key].name + '</br>';
+					Person.otv += "Фамилия: " + Person[key].surname + '</br>';
+					Person.otv += "Стипендия: " + Person[key].grants + '</br></br>';
+				}						
+			} 
+			return this.otv;
 		}
 	}
+	document.getElementById('result1').innerHTML = Person.schet();
 
-	var otv = '';
-	for (var key in Person) {
+	
+	/*for (var key in Person) {
 		if (Person[key].grants == 'получает') {
 			otv += "Имя: " + Person[key].name + '</br>';
 			otv += "Фамилия: " + Person[key].surname + '</br>';
@@ -31,7 +43,7 @@ function ob1(){
 		}
 
 		document.getElementById('result1').innerHTML = otv;
-	}
+	}*/
 }
 
 function ob2(){
