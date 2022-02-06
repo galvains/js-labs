@@ -1,11 +1,11 @@
 body {
 	font-family: "Tahoma", serif;
 	color: white;
-	background: #3F3F3F;
+	background: #666666;
 }
 
 .zag {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bolder;
 }
 
@@ -30,5 +30,16 @@ body {
 	height: 20px;
 }
 
+.button {
+	border-color: #00BF00;
+	color: #fff;
+	box-shadow: 0 0 40px 40px #00BF00 inset, 0 0 0 0 #00BF00;
+	-webkit-transition: all 150ms ease-in-out;
+	transition: all 150ms ease-in-out;
+  }
+  .button:hover {
+	box-shadow: 0 0 50px 0 #00BF00 inset, 0 0 7px 1px #00BF00;
+	text-emphasis-color: black;
+  }
 
 
