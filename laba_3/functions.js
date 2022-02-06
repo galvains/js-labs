@@ -145,21 +145,15 @@ function ob7(){
 }
 
 function ob8(){
-	var arr = [];
-	var arr2 = [];
+	var arr = [5, 7, 1, 4, 2, 9, 3, 10, 6, 8];
 	var schet = 0;
 
-	for (var i = 0; i < 5; i++){
-		arr.push(Math.round(Math.random() * 5));			
-	}
-
 	function swapMinWithMax(arr) {
-			Min = arr[0],
-			Max = arr[0],
-			indexMin = 0,
-			indexMax = 0;
+			var Min = arr[0];
+			var Max = arr[0];
+			var indexMin = 0;
+			var indexMax = 0;
 			
-
 		for (var i = 0; i < arr.length; i++) {
 			if (Min > arr[i]) {
 				Min = arr[i];
@@ -169,45 +163,85 @@ function ob8(){
 				Max = arr[i];
 				indexMax = i; 
 			}
-		}		
+		}	
+
+		if (indexMin < indexMax){
+			for(var i = indexMin; i <= indexMax; i++){
+				schet += 1;
+			}
+		}
+		else{
+			for(var i = indexMax; i <= indexMin; i++){
+				schet += 1;
+			}
+		}			
 	}
+	
 
 	swapMinWithMax(arr);
-
-	if (indexMin < indexMax){
-		arr2.unshift(indexMax);
-		arr2.unshift(indexMin);
-	}
-	else if (indexMin > indexMax){
-		arr2.unshift(indexMin);
-		arr2.unshift(indexMax);
-	}
-	else if (indexMin -1 == indexMax && indexMax -1 == indexMin){
-		return schet;
-	}
-
-	for(var g in arr2){	
-		/*arr2.splice(1, 0, arr2[0] + 1);	
-		schet += 1;
-		if(arr2[g] == arr2[arr2.length -1]){
-			break
-		}
-		else {
-			schet += 1;
-		}*/
-	}
-
-
-	document.getElementById('result8').innerHTML = arr + '<br>' + 'id_min: ' + indexMin + ' | ' + 'id_max: ' + indexMax + '<br>' + arr2;
+	document.getElementById('result8').innerHTML = arr + '<br>' + schet;
 
 }
 
 function ob9(){
-	pass
-	document.getElementById('result9').innerHTML = res;
+	arr = [];
+	sum_chet = 0;
+	pr_nechet = 1;
+	for (var i = 0; i < 7; i++){
+		arr.push(Math.round(Math.random() * 7));
+		if (arr[i] % 2 != 0){
+			pr_nechet *= arr[i];
+		}
+	}
+	for (var j = 0; j < arr.length; j = j + 2){
+		sum_chet += arr[j];
+	}
+
+	document.getElementById('result9').innerHTML = arr + '<br>' + '* нечет: ' + pr_nechet + '<br>' + '+ чет: ' + sum_chet;
+
 }
 
 function ob10(){
-	pass
-	document.getElementById('result10').innerHTML = res;
+	var arr = [];
+	var sum = 0;
+	var arr2 =[];
+
+	for (var i = 0; i < 7; i++){
+		arr.push(Math.round(Math.random() * 7));		
+	}
+
+	arr2 = arr.slice(0);
+
+	for (var j in arr2){
+		if (arr2[j] % 3 == 0){
+			arr2[j] = 0;
+			sum += 1;
+		}
+	}
+	document.getElementById('result10').innerHTML = arr + '<br>' + arr2 + '<br>' + sum ;
+}
+
+function ob11(){
+	var arr = [3, -2, 10, 13, -2, 4, 8, -1]
+	var sum = 0;
+	var schet = 0;
+	var ob_sum = 0;
+	var ob_schet = 0;
+
+		for(var i in arr){			
+			if (arr[i] > 0){
+				sum += arr[i];
+				schet += 1;
+			}
+		}
+		
+	var sr_arifm = sum / schet;
+		for (var j in arr){
+			if(Math.abs(arr[j]) > sr_arifm){
+				ob_schet += 1;
+				ob_sum += arr[j]
+			}
+		}
+
+	document.getElementById('result11').innerHTML = arr + '<br>' + 'Сумма: ' + ob_sum + '<br>' + 'Кол-во: ' +ob_schet + '<br>' + 'Ср.арифм: ' +sr_arifm;
 }
