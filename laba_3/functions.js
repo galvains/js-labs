@@ -146,7 +146,8 @@ function ob7(){
 
 function ob8(){
 	var arr = [];
-	
+	var arr2 = [];
+	var schet = 0;
 
 	for (var i = 0; i < 5; i++){
 		arr.push(Math.round(Math.random() * 5));			
@@ -173,10 +174,31 @@ function ob8(){
 
 	swapMinWithMax(arr);
 
-	
+	if (indexMin < indexMax){
+		arr2.unshift(indexMax);
+		arr2.unshift(indexMin);
+	}
+	else if (indexMin > indexMax){
+		arr2.unshift(indexMin);
+		arr2.unshift(indexMax);
+	}
+	else if (indexMin -1 == indexMax && indexMax -1 == indexMin){
+		return schet;
+	}
+
+	for(var g in arr2){	
+		/*arr2.splice(1, 0, arr2[0] + 1);	
+		schet += 1;
+		if(arr2[g] == arr2[arr2.length -1]){
+			break
+		}
+		else {
+			schet += 1;
+		}*/
+	}
 
 
-	document.getElementById('result8').innerHTML = arr + '<br>' + indexMin + '.' + indexMax ;
+	document.getElementById('result8').innerHTML = arr + '<br>' + 'id_min: ' + indexMin + ' | ' + 'id_max: ' + indexMax + '<br>' + arr2;
 
 }
 
