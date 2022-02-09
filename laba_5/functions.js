@@ -1,37 +1,35 @@
 function ob1(){
-	var array = Array.prototype.map.call(document.getElementsByName("vvod"), function (item) {
+	array = Array.prototype.map.call(document.getElementsByName("vvod"), function (item) {
 		return parseInt(item.value, 10);
 	});
-	var arr_bubble = array.slice(0);
-	var arr_shell = array.slice(0);
 	var arr_vstav = [];
 
 
-	function bubble(arr_bubble){
-		for(let j = 0; j < arr_bubble.length; j++){
-			for (let i = 0; i < arr_bubble.length - 1 - j; i++){
-				if(arr_bubble[i] > arr_bubble[i + 1]){
-					let swap = arr_bubble[i];
-					arr_bubble[i] = arr_bubble[i + 1];
-					arr_bubble[i + 1] = swap;
+	function bubble(array){
+		for(let j = 0; j < array.length; j++){
+			for (let i = 0; i < array.length - 1 - j; i++){
+				if(array[i] > array[i + 1]){
+					let swap = array[i];
+					array[i] = array[i + 1];
+					array[i + 1] = swap;
 				}
 			}
 		}
-		return arr_bubble;
+		return array;
 	}
 
-	function shell(arr_shell){
-    	var len = arr_shell.length, i = Math.floor(len/2);
+	function shell(array){
+    	var len = array.length, i = Math.floor(len/2);
     	while (i > 0){ 
 			for (var j = 0; j < len; j++){ 
-				var k = j, t = arr_shell[j];
-    	      	while (k >= i && arr_shell[k-i] > t){ 
-					arr_shell[k] = arr_shell[k-i]; k -= i; }
-					arr_shell[k] = t;
+				var k = j, t = array[j];
+    	      	while (k >= i && array[k-i] > t){ 
+					array[k] = array[k-i]; k -= i; }
+					array[k] = t;
     	    }
     	  	i = (i==2) ? 1 : Math.floor(i*5/11);
     	}
-    	return arr_shell;
+    	return array;
 	}
 
 	function vstav(array){
@@ -47,8 +45,46 @@ function ob1(){
 		return arr_vstav;
 	}
 
-	document.getElementById('result1').innerHTML = array + '<br>' + 'bubble: ' + bubble(arr_bubble) + '<br>' + 'shell: ' + shell(arr_shell) + '<br>' + 'vstav: ' + vstav(array);
+	document.getElementById('result1').innerHTML = array + '<br>' + 'bubble: ' + bubble(array) + '<br>' + 'shell: ' + shell(array) + '<br>' + 'vstav: ' + vstav(array);
+
 }
 
+function ob2(){
+	array = Array.prototype.map.call(document.getElementsByName("vvod"), function (item) {
+		return parseInt(item.value, 10);
+	});
+
+	var a = parseInt(document.getElementById('a').value);
+	var res = '';
+
+	function bubble(array){
+		for(let j = 0; j < array.length; j++){
+			for (let i = 0; i < array.length - 1 - j; i++){
+				if(array[i] > array[i + 1]){
+					let swap = array[i];
+					array[i] = array[i + 1];
+					array[i + 1] = swap;
+				}
+			}
+		}
+		return array;
+	}
+	
+	var arr2 = bubble(array);
+
+	for(var i = 0; i < arr2.length; i++){
+		if(a == arr2[i]){
+			res = i;
+			break
+		}
+		else if(a != arr2[i]){
+			res = 'такого элемента нет!'
+		}
+	}
+	
+	
+	document.getElementById('result2').innerHTML = arr2 + '<br>' + 'id: ' + res;
+
+}
 	
 	
