@@ -2,24 +2,26 @@ function ob1(){
 	//let username = document.getElementById('username').value;
 	let password = document.getElementById('password').value;
 	let confirm = document.getElementById('confirm').value;
-	let re = password.match(/[a-zA-Z\!\?]/g).join('');
 	try{
 		if(password !== confirm){
 			throw new Error('не совпадают пароли!');
 		}
-		if(re != password){
-			throw new Error('Неверные символы!');
-		}
-		if(password == confirm){
-			document.getElementById('result1').innerHTML = 'Регистрация прошла успешно...';
-		}
 		else{
-			throw new Error('Неверный логин или пароль!');
+			let re = password.match(/[a-zA-Z\!\?]/g).join('');
+
+			if(re != password | re == false){
+				throw new Error('Неверные символы!');
+			}
+			if(password == confirm){
+				document.getElementById('result1').innerHTML = 'Регистрация прошла успешно...';
+			}
+			else{
+				throw new Error('Неверный логин или пароль!');
+			}
 		}
 	}
 	catch(Error){
 		document.getElementById('result1').innerHTML = Error.name + ': ' + Error.message;
-
 	}
 	//document.getElementById('result1').innerHTML =  re;
 }
