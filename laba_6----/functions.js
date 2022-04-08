@@ -11,61 +11,65 @@ function ob1(){
 
 
 
-/*function ob2(){
-	let a = parseInt(document.getElementById('a').value);
+function ob2(){
+	let a = parseInt(document.getElementById('b').value);
 	let schet = 0;
-	let mask = 11;
+	let len = a.toString(2).length;
+	//let mask = 3;
+	let mask = 00000000000000000000000000000011;
 
-	a & mask = 00000000000000000000000000000011
-	for(let i = 0; i < a.toString().length; i++){
-		if (a & mask == 11){
+	for (let i = 1; i < len; i++){
+
+		if(a & mask == mask){
 			schet += 1;
+		
 		}
-		else if (a & mask != 11){
-			i += 1
-		}
+		mask<<i;
 	}
-
-	document.getElementById('result2').innerHTML = d;
+	document.getElementById('result2').innerHTML = schet;
 }
-*/
 
-function crypt(){
+
+function array(){
+	let letters = {
+		'a': '. -', 
+		'b': '- . . .', 
+		'c': '- . - .', 
+		'd': '- . .', 
+		'e': '.', 
+		'f': '. . - .', 
+		'g': '- - .', 
+		'h': '. . . .',
+		'i': '. .', 
+		'j': '. - - -', 
+		'k': '- . -', 
+		'l': '. - . .', 
+		'm': '- -', 
+		'n': '- .', 
+		'o': '- - -', 
+		'p': '	. - - .', 
+		'q': '- - . -',
+		'r': '. - .', 
+		's': '. . .', 
+		't': '-', 
+		'u': '. . -', 
+		'v': '. . . -', 
+		'w': '. - -', 
+		'x': '- . - -', 
+		'y': '- . . -', 
+		'z': '- - . .',
+		};
+	return letters
+}
+function crypt(letters){
 	let text = document.getElementById('crypt').value.toLowerCase().split('');
 	let res = '';
-	letters = {
-	'a': '. -', 
-	'b': '- . . .', 
-	'c': '- . - .', 
-	'd': '- . .', 
-	'e': '.', 
-	'f': '. . - .', 
-	'g': '- - .', 
-	'h': '. . . .',
-	'i': '. .', 
-	'j': '. - - -', 
-	'k': '- . -', 
-	'l': '. - . .', 
-	'm': '- -', 
-	'n': '- .', 
-	'o': '- - -', 
-	'p': '	. - - .', 
-	'q': '- - . -',
-	'r': '. - .', 
-	's': '. . .', 
-	't': '-', 
-	'u': '. . -', 
-	'v': '. . . -', 
-	'w': '. - -', 
-	'x': '- . - -', 
-	'y': '- . . -', 
-	'z': '- - . .',
-	};
+	let crypt_letters = array();
 	
 	for (let k in text){
-		for(let i in letters){
+		for(let i in crypt_letters){
 			if (i == text[k]){
-				res += letters[i] + '|';
+				res += crypt_letters[i] + '|';
 			}
 		}
 	}
@@ -76,38 +80,11 @@ function crypt(){
 function decrypt(){
 	let text = document.getElementById('decrypt').value.split('|');
 	let res = '';
-	//let letters = {
-	//'a': '. -', 
-	//'b': '- . . .', 
-	//'c': '- . - .', 
-	//'d': '- . .', 
-	//'e': '.', 
-	//'f': '. . - .', 
-	//'g': '- - .', 
-	//'h': '. . . .',
-	//'i': '. .', 
-	//'j': '. - - -', 
-	//'k': '- . -', 
-	//'l': '. - . .', 
-	//'m': '- -', 
-	//'n': '- .', 
-	//'o': '- - -', 
-	//'p': '	. - - .', 
-	//'q': '- - . -',
-	//'r': '. - .', 
-	//'s': '. . .', 
-	//'t': '-', 
-	//'u': '. . -', 
-	//'v': '. . . -', 
-	//'w': '. - -', 
-	//'x': '- . - -', 
-	//'y': '- . . -', 
-	//'z': '- - . .',
-	//};
+	let decrypt_letters = array();
 
 		for (let k of text){
-			for(let i in letters){
-				if (letters[i] === k){
+			for(let i in decrypt_letters){
+				if (decrypt_letters[i] == k){
 					res += i;
 				}
 			}
