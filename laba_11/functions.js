@@ -39,7 +39,7 @@ function sort_delete(){
 
 	//for(let i = 0; i < arr.length; i++){
 	//	obj[arr[i]['surname']] = arr[i];
-	//}
+	//}f
 
 	for(let i in new_arr){
 		for(let j in new_arr[i]){
