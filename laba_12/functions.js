@@ -1,16 +1,24 @@
 function rec(){
-	let n = parseInt(document.getElementById('a').value);
+	let n = 5;
 	let res = '';
 
 	F(n);
 	function F(n){
-		res += n + ' ';
-		if(n < 4){
-			F(n + 1);
-			F(n + 3);
-		}
-	}
+	//res += n + ' ';
+	//	if(n < 4){
+	//		F(n + 1);
+	//		F(n + 3);
+	//	}
+	//}
 
+	if (n > 1){
+		F(n * F(n-1))
+	}
+	else{
+		F(1);
+	}
+	}
+	
 	document.getElementById('result1').innerHTML = res;
 }
 
@@ -34,5 +42,22 @@ function ob2(){
 	}
 	
 
-	document.getElementById('result2').innerHTML = res;
+	document.getElementById('result2').innerHTML = 'рекурсия: ' + res;
+}
+
+function ob2_for(){
+	let n = parseInt(document.getElementById('b').value);
+	let res = 1; g = 2; v = 1;
+
+	for(let i = 0; i < n; i++){
+		res *= (g / v);
+		if(i % 2){
+			g += 2;
+		}
+		else{
+			v += 2;
+		}
+	}
+
+	document.getElementById('result3').innerHTML = 'цикл: ' + res;
 }
