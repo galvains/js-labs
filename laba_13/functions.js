@@ -22,7 +22,7 @@ function f1(){
 
 function f2(){
 	let parentDiv = document.querySelector('.hl');
-	let depth = 8;
+	let depth = 20;
 
 
 	function randomCoord(min, max){
@@ -32,23 +32,18 @@ function f2(){
 	
 	function appendDiv(parentDiv, depth){
 		if(depth != 0){
-			//let rand = randomCoord(1, 100)
 			let newElem = document.createElement('div');
-			newElem.innerHTML = `<span style="margin-top: '${randomCoord(1, 100)}'px">Hello world!</span>`;
+			//newElem.innerHTML = `<span style="margin-top: '${randomCoord(1, 100)}'px">Hello world!</span>`;
+			newElem.innerHTML = `<div>Hello world!</div>`;
+			newElem.style.position = 'absolute';
+			newElem.style.marginLeft = `${randomCoord(1, 400)}px`;
+			newElem.style.marginTop = `${randomCoord(1, 100)}px`;
+		
 			parentDiv.insertAdjacentElement(
 				'beforeend',
 				newElem
 			)
 			appendDiv(parentDiv, depth - 1);
-
-
-			//let childDiv = document.createElement('DIV');
-			//childDiv.style.position = 'absolute';
-			//childDiv.style.left = randomCoord(1, 500) + 'px';
-			//childDiv.style.top = randomCoord(1, 200) + 'px';
-			//parentDiv.appendChild(childDiv);
-			//appendDiv(childDiv, depth, schet + 1);
-			//schet += 1;
 		}
 	}
 
