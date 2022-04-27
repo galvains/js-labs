@@ -1,20 +1,17 @@
 function f1(){
 	let m = parseInt(document.getElementById('m').value);
 	let res = '';
-	let x = 1;
-	let schet = 0;
 
 	rec(m);
-	function rec(m){
-		if (schet == m){
-			return res;
+	function rec(m){	
+		if (0 == m){
+			elem = 0;
 		}
 		else{
-			elem = 5 * (rec(x - 1)) + 1;
-			schet += 1;
+			elem = 5 * (rec(m - 1)) + 1;
 			res += elem + ',';
-		}
-		
+		}	
+		return elem;
 	}
 
 	document.getElementById('result1').innerHTML = res;
